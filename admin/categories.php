@@ -2,7 +2,7 @@
 $pageTitle = "Admin Login";
 ob_start(); // Start output buffering
 $content = ob_get_clean(); // Get the buffered content
-include('../index.php');
+include('../common/sidebar.php');
 session_start();
 include('../config/db.php');
 
@@ -17,16 +17,11 @@ if ($conn->query($sql) === TRUE) {
     }
 } 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Category</title>
-</head>
-<body>
+
+      
+    
     <h1>Add New Category</h1>
-    <form  method="post">
+    <form  method="post" class="relative">
         <label for="name">Category Name:</label>
         <input type="text" id="name" name="name" required><br><br>
 
@@ -35,5 +30,3 @@ if ($conn->query($sql) === TRUE) {
 
         <input type="submit" value="Add Category">
     </form>
-</body>
-</html>

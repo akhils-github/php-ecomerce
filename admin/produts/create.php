@@ -1,10 +1,10 @@
 <?php
-$pageTitle = "Admin Login";
+$pageTitle = "Product Create";
 ob_start(); // Start output buffering
 $content = ob_get_clean(); // Get the buffered content
-include('../common/sidebar.php');
+include('../../common/sidebar.php');
 session_start();
-include('../config/db.php');
+include('../../config/db.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -66,38 +66,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Food Item</title>
-</head>
-<body>
-    <h1>Add New Food Item</h1>
-    <form method="post" enctype="multipart/form-data">
-        <label for="name">Food Item Name:</label>
-        <input type="text" id="name" name="name" required><br><br>
-
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
-
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" step="0.01" required><br><br>
-
-        <label for="image">Main Image:</label>
-        <input type="file" id="image" name="image" accept="image/*" required><br><br>
-
-        <label for="morepics">Additional Images:</label>
-        <input type="file" id="morepics" name="morepics[]" multiple><br><br>
-
-        <label for="quantity">Quantity:</label>
-        <input type="number" id="quantity" name="quantity" required><br><br>
-
-        <label for="category_id">Category:</label>
-        <select id="category_id" name="category_id" required>
+<div class="container">
+    <div class="title">Create Products</div>
+    <div class="content">
+      <form method="post" enctype="multipart/form-data">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Food Name</span>
+            <input type="text" id="name" name="name" placeholder="Enter your Food name" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Description</span>
+            <input type="text" id="description" name="description"  placeholder="Enter your Description" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Price</span>
+            <input type="text" id="price" name="price" placeholder="Enter your Price" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Image</span>
+            <input type="file" class="full" name="image" id="image" placeholder="Enter your Image"  accept="image/*"required>
+          </div>
+          <!-- <div class="input-box">
+            <span class="details">Password</span>
+            <input type="text" placeholder="Enter your password" required>
+          </div> -->
+          <div class="input-box">
+            <span class="details">Quantity</span>
+            <input type="number" name="quantity" placeholder="Enter  quantity" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Category</span>
+            <select id="category_id" name="category_id" class="select-box" required>
             <?php
             // Fetch categories
             $result = $conn->query("SELECT id, name FROM categories");
@@ -105,12 +105,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<option value='" . $row['id'] . "'>" . $row['name'] . "</option>";
             }
             ?>
-        </select><br><br>
-
-        <label for="is_sold">Sold:</label>
-        <input type="checkbox" id="is_sold" name="is_sold" value="1"><br><br>
-
-        <input type="submit" value="Add Food Item">
-    </form>
-</body>
-</html> -->
+              </select>
+          </div>
+          <div class="check-box">
+          <input type="checkbox" value="1" name="is_sold" id="is_sold">
+         
+            <span class="gender-title">Is Sold</span>
+           
+        </div>  
+        </div>
+      
+        <div class="button">
+          <input type="submit" value="Create">
+        </div>
+      </form>
+    </div>
+  </div>

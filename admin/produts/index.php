@@ -1,12 +1,10 @@
 <?php
-$pageTitle = "User Details";
+$pageTitle = "Product Create";
 ob_start(); // Start output buffering
 $content = ob_get_clean(); // Get the buffered content
-include('../index.php'); 
-
-
+include('../../common/sidebar.php');
 session_start();
-include('../config/db.php');
+include('../../config/db.php');
 
 if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
@@ -46,8 +44,6 @@ if ($foodItem) {
      echo "Food item not found.";
 }
 }
-
-
 // Fetch food items
 $result = $conn->query("SELECT food_items.id, food_items.name, food_items.description, food_items.price, food_items.image, food_items.morepic, categories.name AS category_name
                         FROM food_items
@@ -56,61 +52,52 @@ $result = $conn->query("SELECT food_items.id, food_items.name, food_items.descri
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food Items List</title>
-</head>
-<style>
-        .food-item img {
-            max-width: 150px;
-            max-height: 150px;
-            display: block;
-            margin: 10px 0;
-        }
-        .food-item {
-            border: 1px solid #ddd;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-        .food-item .morepics img {
-            max-width: 100px;
-            max-height: 100px;
-            margin: 5px;
-        }
-    </style>
-<body>
-    <h1>Food Items List</h1>
-    <a href="add_food_item.php">Add New Food Item</a><br><br>
-    <table >
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Actions</th>
-        </tr>
+<section class="table__header">
+            <h1>Customer's Orders</h1>
+       <div class="create-btn">
+        create
+       </div>
+        </section>
+<section class="table__body">
+            <table>
+                <thead>
+
+                    <tr>
+                        <th> Id </th>
+                        <th> Food Image </th>
+                        <th> Food Name </th>
+                        <th> Description </th>
+                        <th> Price </th>
+                        <th> Category </th>
+                        <th> Actions </th>
+                  
+                    </tr>
+
+                </thead>
+                <tbody >
         <?php while ($row = $result->fetch_assoc()): ?>
-        <tr>
+
+                    <tr>
+             
+            <td><?php echo htmlspecialchars($row['id']); ?></td>
             <td><!-- Display main image -->
             <?php if ($row['image']): ?>
-                <img width=100 src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
+                <img width=100 height=200 src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
             <?php endif; ?></td>
-            <td><?php echo htmlspecialchars($row['id']); ?></td>
+
             <td><?php echo htmlspecialchars($row['name']); ?></td>
             <td><?php echo htmlspecialchars($row['description']); ?></td>
             <td><?php echo htmlspecialchars($row['price']); ?></td>
             <td><?php echo htmlspecialchars($row['category_name']); ?></td>
-            <td>
+            <td  class="action">
 
-                <a href="edit_food_item.php?id=<?php echo $row['id']; ?>">Edit</a> | 
-                <a  href="#?id=<?php echo $row['id']; ?> "onclick="return confirm('Are you sure you want to delete this food item?');">Delete</a>
+                <a href="edit.php?id=<?php echo $row['id']; ?>" class="status delivered">Edit</a> 
+                <a  href="?id=<?php echo $row['id']; ?> "onclick="return confirm('Are you sure you want to delete this food item?');" class="status cancelled">Delete</a>
             </td>
-        </tr>
+                    </tr>
         <?php endwhile; ?>
-    </table>
-</body>
-</html>
+
+        
+                </tbody>
+            </table>
+        </section>
