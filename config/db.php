@@ -3,7 +3,7 @@
 $servername = "localhost";  // or your database server name
 $username = "root";         // your database username
 $password = "";             // your database password
-$dbname = "food_corner";    // the name of the database you want to connect to
+$dbname = "canteen";    // the name of the database you want to connect to
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

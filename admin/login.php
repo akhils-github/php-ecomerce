@@ -72,25 +72,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <div class="col-12">
                   <div class="d-grid">
-                    <button class="btn bsb-btn-xl btn-primary" type="submit">Log in now</button>
+                    <button class="btn bsb-btn-xl btn-primary" type="submit">Register</button>
                   </div>
                 </div>
               </div>
             </form>
          
-            <div class="row">
-              <div class="col-12">
-                <p class="mt-5 mb-4">Or sign in with</p>
-                <div class="d-flex gap-3 flex-column flex-xl-row">
-                  <a href="#!" class="btn bsb-btn-xl btn-outline-primary">
-                  
-                    <span class="ms-2 fs-6">User</span>
-                  </a>
-                
-                
-                </div>
-              </div>
-            </div>
+          
           </div>
         </div>
       </div>
