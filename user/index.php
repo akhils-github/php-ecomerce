@@ -356,18 +356,7 @@ include('../common/navbar.php');
     </div>
 </setion>
 
-<section class="footer">
 
-    <div class="share">
-        <a href="#" class="btn">facbook</a>
-        <a href="#" class="btn">twitter</a>
-        <a href="#" class="btn">instagram</a>
-        <a href="#" class="btn">pininterst</a>
-        <a href="#" class="btn">linkedin</a>
-    </div>
-
-
-</section>
 
 <a href="#home" class="fas fa-angle-up" id="scroll-top"></a>
 
