@@ -5,35 +5,50 @@ $content = ob_get_clean(); // Get the buffered content
 include('../index.php');
 session_start();
 include('../config/db.php');
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-$name = $_POST['name'];
-$description = $_POST['description'];
-$price = $_POST['price'];
-$quantity = $_POST['quantity'];
-$category_id = $_POST['category_id'];
-$is_sold = isset($_POST['is_sold']) ? 1 : 0;
+    $name = $_POST['name'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
+    $quantity = $_POST['quantity'];
+    $category_id = $_POST['category_id'];
+    $is_sold = isset($_POST['is_sold']) ? 1 : 0;
 
-// Handle image upload
-$uploadDir = 'uploads/';
-$mainImage = $uploadDir . basename($_FILES['image']['name']);
-move_uploaded_file($_FILES['image']['tmp_name'], $mainImage);
-
-// Handle additional images
-$morePics = [];
-if (!empty($_FILES['morepics']['name'][0])) {
-    foreach ($_FILES['morepics']['name'] as $key => $filename) {
-        $filePath = $uploadDir . basename($filename);
-        move_uploaded_file($_FILES['morepics']['tmp_name'][$key], $filePath);
-        $morePics[] = $filePath;
+    // Handle image upload
+    $uploadDir = 'uploads/';
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true); // Create directory if it doesn't exist
     }
-}
-$morePicsJson = json_encode($morePics);
-$sql = "INSERT INTO food_items(name, description, price, image, morepic, quantity, category_id, is_sold ) VALUES ('$name', '$description', '$price', '$mainImage', '$morePicsJson', '$quantit'y, '$category_id', '$is_sold')";
-if ($conn->query($sql) === TRUE) {
-    echo "New food item created successfully";
-    }else{
-    echo "Error: " ;
+    
+    $mainImage = $uploadDir . basename($_FILES['image']['name']);
+    if (move_uploaded_file($_FILES['image']['tmp_name'], $mainImage)) {
+        echo "Main image uploaded successfully.<br>";
+    } else {
+        echo "Error uploading main image.<br>";
+    }
+
+    // Handle additional images
+    $morePics = [];
+    if (!empty($_FILES['morepics']['name'][0])) {
+        foreach ($_FILES['morepics']['name'] as $key => $filename) {
+            $filePath = $uploadDir . basename($filename);
+            if (move_uploaded_file($_FILES['morepics']['tmp_name'][$key], $filePath)) {
+                $morePics[] = $filePath;
+            } else {
+                echo "Error uploading additional image: $filename<br>";
+            }
+        }
+    }
+    $morePicsJson = json_encode($morePics);
+
+    $sql = "INSERT INTO food_items(name, description, price, image, morepic, quantity, category_id, is_sold ) 
+            VALUES ('$name', '$description', '$price', '$mainImage', '$morePicsJson', '$quantity', '$category_id', '$is_sold')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New food item created successfully";
+    } else {
+        echo "Error: " . $conn->error;
     }
 }
 ?>
@@ -46,7 +61,7 @@ if ($conn->query($sql) === TRUE) {
 </head>
 <body>
     <h1>Add New Food Item</h1>
-    <form  method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
         <label for="name">Food Item Name:</label>
         <input type="text" id="name" name="name" required><br><br>
 
@@ -68,9 +83,6 @@ if ($conn->query($sql) === TRUE) {
         <label for="category_id">Category:</label>
         <select id="category_id" name="category_id" required>
             <?php
-            // Include database connection
-            include 'db_connection.php';  // Adjust path as necessary
-
             // Fetch categories
             $result = $conn->query("SELECT id, name FROM categories");
             while ($row = $result->fetch_assoc()) {
