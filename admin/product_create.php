@@ -46,7 +46,7 @@ if ($conn->query($sql) === TRUE) {
 </head>
 <body>
     <h1>Add New Food Item</h1>
-    <form action="process_food_item.php" method="post" enctype="multipart/form-data">
+    <form  method="post" enctype="multipart/form-data">
         <label for="name">Food Item Name:</label>
         <input type="text" id="name" name="name" required><br><br>
 
