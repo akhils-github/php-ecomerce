@@ -28,14 +28,14 @@
 
         <div class="sidebar-content">
           <ul class="lists">
-            <li class="list">
+            <!-- <li class="list">
               <a href="#" class="nav-link">
                 <i class="bx bx-home-alt icon"></i>
                 <span class="link">Dashboard</span>
               </a>
-            </li>
+            </li> -->
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="products" class="nav-link">
                 <i class='bx bx-user icon'></i>
                 <span class="link">Customers</span>
               </a>

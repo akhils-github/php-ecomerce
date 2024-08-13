@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['admin'] = $user['username'];
-            header("Location: manage_users.php");
+            header("Location: products");
         } else {
             echo "Invalid password!";
         }
