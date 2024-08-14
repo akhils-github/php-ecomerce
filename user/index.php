@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RESTAURANT</title>
+    <title>CANTEEN</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/main.css">
 </head>
@@ -16,13 +16,13 @@ include('../common/navbar.php');
 
 <section class="home" id="home">
     <div class="content">
-        <h3>food made with love</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis reprehenderit maiores ipsum possimus ad! Culpa quos eum dolores! Dolor quos mollitia delectus fugit impedit obcaecati odio molestiae dignissimos doloribus, fugiat expedita, eos excepturi! Quidem est illum molestias itaque doloribus sed debitis eveniet dolorem, nulla saepe, deleniti ullam fugiat iure dicta?</p>
+        <h3>Savor the flavor of homemade goodness</h3>
+        <p>Enjoy the comforting taste of home-cooked meals at our canteen. We make each dish with care and quality ingredients, so every bite feels like home. Have a great day!</p>
         <a href="#" class="btn">order now</a>
     </div>
 
     <div class="image">
-        <img src="../assets/images/home-img.png" alt="">
+        <img src="../assets/images/homepic.png" alt="">
     </div>
 </section>
 
@@ -36,9 +36,10 @@ include('../common/navbar.php');
             <img class="image" src="../assets/images/s-img-1.jpg" alt="">
             <div class="content">
                 <img src="../assets/images/s-1.png" alt="">
-                <h3>tasty burger</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam beatae libero nisi suscipit eveniet autem sequi eius ratione quas necessitatibus!</p>
-
+                <h3>TASTY BURGER</h3>
+                <p>
+                    We offer a variety of burgers, including veg, non-veg, and more. Please note that you can order up to 5 burgers in total, but you cannot order just 1 burger through this website.
+                </p>
             </div>
         </div>
         <div class="box">
@@ -46,7 +47,9 @@ include('../common/navbar.php');
             <div class="content">
                 <img src="../assets/images/s-2.png" alt="">
                 <h3>tasty pizza</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam beatae libero nisi suscipit eveniet autem sequi eius ratione quas necessitatibus!</p>
+                <p>We offer a variety of pizzas, including veg, non-veg, and more. Please note that you can order up to 5 pizzas in total, but ordering only 1 pizza is not possible through this website.
+
+</p>
                 
             </div>
         </div>
@@ -54,26 +57,28 @@ include('../common/navbar.php');
             <img class="image" src="../assets/images/s-img-3.jpg" alt="">
             <div class="content">
                 <img src="../assets/images/s-3.png" alt="">
-                <h3>cold ice-cream</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam beatae libero nisi suscipit eveniet autem sequi eius ratione quas necessitatibus!</p>
+                <h3>COLD ICE-CREAM</h3>
+                <p>We offer a variety of ice creams, including different flavors and types. Please note that you can order up to 5 ice creams in total, but ordering only 1 ice cream is not possible through this website</p>
                 
             </div>
         </div>
         <div class="box">
-            <img class="image" src="../assets/images/s-img-4.jpg" alt="">
+            <img class="image" src="../assets/images/lunch.jpg" alt="">
             <div class="content">
                 <img src="../assets/images/s-4.png" alt="">
-                <h3>cold drinks</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam beatae libero nisi suscipit eveniet autem sequi eius ratione quas necessitatibus!</p>
+                <h3>LUNCH</h3>
+                <p>We offer a diverse selection of lunch options, including vegetarian, non-vegetarian, and combination meals. You can easily order these meals through our website.</p>
                 
             </div>
         </div>
         <div class="box">
-            <img class="image" src="../assets/images/s-img-5.jpg" alt="">
+            <img class="image" src="../assets/images/snack.jpg" alt="">
             <div class="content">
                 <img src="../assets/images/s-5.png" alt="">
-                <h3>tasty sweets</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam beatae libero nisi suscipit eveniet autem sequi eius ratione quas necessitatibus!</p>
+                <h3>SNACKS</h3>
+                <p>We offer a variety of snack options, including vegetarian, non-vegetarian, and mixed veg and non-veg selections. You can order up to 5 snacks through our website, but please note that ordering only 1 snack is not allowed.
+
+</p>
                 
             </div>
         </div>
@@ -81,9 +86,8 @@ include('../common/navbar.php');
             <img class="image" src="../assets/images/s-img-6.jpg" alt="">
             <div class="content">
                 <img src="../assets/images/s-6.png" alt="">
-                <h3>tasty breakfast</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam beatae libero nisi suscipit eveniet autem sequi eius ratione quas necessitatibus!</p>
-                
+                <h3>TASTY BREAKFAST</h3>
+                <p>We offer a wide range of breakfast options, including vegetarian, non-vegetarian, and mixed veg and non-veg meals. You can conveniently order these meals through our website.</p>
             </div>
         </div>
     </div>
@@ -96,9 +100,9 @@ include('../common/navbar.php');
     <div class="box-container">
 
         <div class="box">
-            <span class="price"> $5 - $20 </span>
+            <span class="price"> $50 - $100 </span>
             <img src="../assets/images/p-1.jpg" alt="">
-            <h3>tasty burger</h3>
+            <h3>TASTY BURGER</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -110,9 +114,9 @@ include('../common/navbar.php');
         </div>
 
         <div class="box">
-            <span class="price"> $5 - $20 </span>
+            <span class="price">$50 - $100 </span>
             <img src="../assets/images/p-2.jpg" alt="">
-            <h3>tasty cakes</h3>
+            <h3>SNACKS</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -126,7 +130,7 @@ include('../common/navbar.php');
         <div class="box">
             <span class="price"> $5 - $20 </span>
             <img src="../assets/images/p-3.jpg" alt="">
-            <h3>tasty sweets</h3>
+            <h3>SNACKS</h3>
             <div class="stars">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -137,7 +141,7 @@ include('../common/navbar.php');
             <a href="#" class="btn">order now</a>
         </div>
 
-        <div class="box">
+        <!-- <div class="box">
             <span class="price"> $5 - $20 </span>
             <img src="../assets/images/p-4.jpg" alt="">
             <h3>tasty cupcakes</h3>
@@ -149,7 +153,7 @@ include('../common/navbar.php');
                 <i class="fas fa-star"></i>
             </div>
             <a href="#" class="btn">order now</a>
-        </div>
+        </div> -->
 
         <div class="box">
             <span class="price"> $5 - $20 </span>
