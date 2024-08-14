@@ -1,3 +1,12 @@
+<?php if ($row['image']): ?>
+                <img width=100 height=200 src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
+            <?php endif; ?></td>
+
+            <td><?php echo htmlspecialchars($row['name']); ?></td>
+            <td><?php echo htmlspecialchars($row['description']); ?></td>
+            <td><?php echo htmlspecialchars($row['price']); ?></td>
+            <td><?php echo htmlspecialchars($row['category_name']); ?></td>
+            <td  class="action">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +19,7 @@
 </head>
 <body>
     <!-- header -->
-<?php
-include('../common/navbar.php'); 
-?>
+
 
 <section class="home" id="home">
     <div class="content">
@@ -95,7 +102,7 @@ include('../common/navbar.php');
 
 <section class="popular" id="popular">
 
-    <h1 class="heading">most <span>popular</span>foods</h1>
+    <h1 class="heading"><span>MENU CARD FOOD ITEMS</span></h1>
 
     <div class="box-container">
 
@@ -113,75 +120,6 @@ include('../common/navbar.php');
             <a href="#" class="btn">order now</a>
         </div>
 
-        <div class="box">
-            <span class="price">$50 - $100 </span>
-            <img src="../assets/images/p-2.jpg" alt="">
-            <h3>SNACKS</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div>
-
-        <div class="box">
-            <span class="price"> $5 - $20 </span>
-            <img src="../assets/images/p-3.jpg" alt="">
-            <h3>SNACKS</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div>
-
-        <!-- <div class="box">
-            <span class="price"> $5 - $20 </span>
-            <img src="../assets/images/p-4.jpg" alt="">
-            <h3>tasty cupcakes</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div> -->
-
-        <div class="box">
-            <span class="price"> $5 - $20 </span>
-            <img src="../assets/images/p-5.jpg" alt="">
-            <h3>cold drinks</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div>
-
-        <div class="box">
-            <span class="price"> $5 - $20 </span>
-            <img src="../assets/images/p-6.jpg" alt="">
-            <h3>tasty ice-creams</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div>
     </div>
 </section>
 
@@ -285,6 +223,7 @@ include('../common/navbar.php');
         </div>
     </div>
 </section>
+
 
 <section class="review" id="review">
 

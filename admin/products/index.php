@@ -6,9 +6,7 @@ include('../../common/sidebar.php');
 session_start();
 include('../../config/db.php');
 
-if (!isset($_SESSION['admin'])) {
-    header("Location: login.php");
-}
+
 
 $id = $_GET['id'];
 if($id ){
