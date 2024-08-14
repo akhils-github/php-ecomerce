@@ -81,7 +81,8 @@ $result = $conn->query("SELECT food_items.id, food_items.name, food_items.descri
             <td><!-- Display main image -->
             <?php if ($row['image']): ?>
                 <img width=100 height=200 src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
-            <?php endif; ?></td>
+            <?php endif; ?>
+        </td>
 
             <td><?php echo htmlspecialchars($row['name']); ?></td>
             <td><?php echo htmlspecialchars($row['description']); ?></td>

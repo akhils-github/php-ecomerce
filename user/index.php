@@ -1,12 +1,14 @@
-<?php if ($row['image']): ?>
-                <img width=100 height=200 src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
-            <?php endif; ?></td>
+<?php 
+session_start();
+include('../config/db.php');
+// Fetch food items
+$result = $conn->query("SELECT food_items.id, food_items.name, food_items.description, food_items.price, food_items.image, food_items.morepic, categories.name AS category_name
+                        FROM food_items
+                        LEFT JOIN categories ON food_items.category_id = categories.id");
+                       
 
-            <td><?php echo htmlspecialchars($row['name']); ?></td>
-            <td><?php echo htmlspecialchars($row['description']); ?></td>
-            <td><?php echo htmlspecialchars($row['price']); ?></td>
-            <td><?php echo htmlspecialchars($row['category_name']); ?></td>
-            <td  class="action">
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,19 +21,22 @@
 </head>
 <body>
     <!-- header -->
-
+    <?php
+include('../common/navbar.php'); 
+?>
 
 <section class="home" id="home">
     <div class="content">
         <h3>Savor the flavor of homemade goodness</h3>
         <p>Enjoy the comforting taste of home-cooked meals at our canteen. We make each dish with care and quality ingredients, so every bite feels like home. Have a great day!</p>
-        <a href="#" class="btn">order now</a>
+        <!-- <a href="#" class="btn">order now</a> -->
     </div>
 
     <div class="image">
         <img src="../assets/images/homepic.png" alt="">
     </div>
 </section>
+
 
 <section class="speciality" id="speciality">
 
@@ -100,28 +105,6 @@
     </div>
 </section>
 
-<section class="popular" id="popular">
-
-    <h1 class="heading"><span>MENU CARD FOOD ITEMS</span></h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <span class="price"> $50 - $100 </span>
-            <img src="../assets/images/p-1.jpg" alt="">
-            <h3>TASTY BURGER</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-            <a href="#" class="btn">order now</a>
-        </div>
-
-    </div>
-</section>
 
 <section class="steps">
 
@@ -148,128 +131,19 @@
     <h1 class="heading">our food <span>gallery</span></h1>
 
     <div class="box-container">
+    <?php while ($row = $result->fetch_assoc()): ?>
+        <div class="box">
+        <?php if ($row['image']): ?>
+            <img src="./<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
+            <?php endif; ?>
 
-        <div class="box">
-            <img src="../assets/images/g-1.jpg" alt="">
             <div class="content">
-                <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, doloremque!</p>
+                <h3><?php echo htmlspecialchars($row['name']); ?></h3>
+                <p><?php echo htmlspecialchars($row['description']); ?>!</p>
                 <a href="#" class="btn">order now</a>
             </div>
         </div>
-        <div class="box">
-            <img src="../assets/images/g-2.jpg" alt="">
-            <div class="content">
-                <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, doloremque!</p>
-                <a href="#" class="btn">order now</a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="../assets/images/g-3.jpg" alt="">
-            <div class="content">
-                <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, doloremque!</p>
-                <a href="#" class="btn">order now</a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="../assets/images/g-4.jpg" alt="">
-            <div class="content">
-                <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, doloremque!</p>
-                <a href="#" class="btn">order now</a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="../assets/images/g-5.jpg" alt="">
-            <div class="content">
-                <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, doloremque!</p>
-                <a href="#" class="btn">order now</a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="../assets/images/g-6.jpg" alt="">
-            <div class="content">
-                <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, doloremque!</p>
-                <a href="#" class="btn">order now</a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="../assets/images/g-7.jpg" alt="">
-            <div class="content">
-                <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, doloremque!</p>
-                <a href="#" class="btn">order now</a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="../assets/images/g-8.jpg" alt="">
-            <div class="content">
-                <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, doloremque!</p>
-                <a href="#" class="btn">order now</a>
-            </div>
-        </div>
-        <div class="box">
-            <img src="../assets/images/g-9.jpg" alt="">
-            <div class="content">
-                <h3>tasty food</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, doloremque!</p>
-                <a href="#" class="btn">order now</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section class="review" id="review">
-
-    <h1 class="heading">our customers <span>reviews</span></h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <img src="../assets/images/pic1.png" alt="">
-            <h3>marlin casey</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi repudiandae aliquam est corrupti, fuga natus qui quia velit quis incidunt?</p>
-
-        </div>
-        <div class="box">
-            <img src="../assets/images/pic2.png" alt="">
-            <h3>john deo</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi repudiandae aliquam est corrupti, fuga natus qui quia velit quis incidunt?</p>
-            
-        </div>
-        <div class="box">
-            <img src="../assets/images/pic3.png" alt="">
-            <h3>herlin timo</h3>
-            <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi repudiandae aliquam est corrupti, fuga natus qui quia velit quis incidunt?</p>
-            
-        </div>
+        <?php endwhile; ?>
     </div>
 </section>
 
