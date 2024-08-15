@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <input type="hidden" name="action" value="register">
       <input type="text" name="username" placeholder="Username" required />
       <input type="text" name="class" placeholder="Class" />
-      <input type="text" name="phone" placeholder="Phone Number" />
+      <input type="text" id="phone" name="phone" placeholder="Phone Number" />
       <input type="password" id="password" name="password" placeholder="Password" required />
       <input type="password" id="cppassword" name="cppassword" placeholder="Confirm Password" required />
       <div id="error_confirm_password" style="color: red; size:0.65rem;"></div>
