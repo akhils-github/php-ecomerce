@@ -1,8 +1,4 @@
 <?php
-$pageTitle = "Admin Login";
-ob_start(); // Start output buffering
-$content = ob_get_clean(); // Get the buffered content
-include('../index.php');
 session_start();
 include('../config/db.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -33,11 +29,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../assets/css/admin.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-
-<body>
-  
-<div class="container">
+<body style="background-color:#222D32; overflow: hidden; padding:80px 0;">
+  <main>
+  <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
             <div class="col-lg-6 col-md-8 login-box">
@@ -74,8 +70,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="col-lg-3 col-md-2"></div>
             </div>
         </div>
+  </main>
 
 
-   <script src="../assets/js/login.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+   <!-- <script src="../assets/js/login.js"></script>  -->
 </body>
 </html>

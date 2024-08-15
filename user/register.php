@@ -18,9 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Registration successful!";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+       }
 
 }
+?>
 
 <section class="p-3 p-md-4 p-xl-5">
   <div class="container">
