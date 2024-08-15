@@ -10,7 +10,6 @@ session_start(); // Start the session
 
     <nav class="navbar">
  
-        <a href="#review">User</a>
         <a href="#order">Cart</a>
         <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
             <!-- User is logged in -->
@@ -19,7 +18,7 @@ session_start(); // Start the session
         <?php else: ?>
             <!-- User is not logged in -->
             <a href="login.php">Login</a>
-            <a href="register.php">Register</a>
+            <a href="login.php">Register</a>
         <?php endif; ?>
     </nav>
     </header>

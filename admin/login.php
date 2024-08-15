@@ -32,43 +32,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../assets/css/login.css">
+  <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 
 <body>
-<div class="container" id="container" >
-	<div class="form-container sign-up-container">
-		<form method="post">
-			<h1>Create Account</h1>
-	
-			<span>or use your email for registration</span>
-			<input type="text" name="username" placeholder="Username" />
-			<!-- <input type="email" placeholder="Email" /> -->
-			<input type="password"  name="password" placeholder="Password" />
-			<button type="submit">Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form method="post">
-			<h1>Sign in</h1>
-	
-			<span>or use your account</span>
-			<input type="text" name="username" placeholder="Username" />
-			<input type="password"  name="password" placeholder="Password" />
-			<button type="submit">Sign In</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-		
-		</div>
-	</div>
-</div>
+  
+<div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-2"></div>
+            <div class="col-lg-6 col-md-8 login-box">
+                <div class="col-lg-12 login-key">
+                    <i class="fa fa-key" aria-hidden="true"></i>
+                </div>
+                <div class="col-lg-12 login-title">
+                    ADMIN PANEL
+                </div>
+
+                <div class="col-lg-12 login-form">
+                    <div class="col-lg-12 login-form">
+                        <form   method="post" autocomplete="off">
+                            <div class="form-group">
+                                <label class="form-control-label">USERNAME</label>
+                                <input autocomplete="off" name="username" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">PASSWORD</label>
+                                <input name="password" autocomplete="off" type="password" class="form-control" i>
+                            </div>
+
+                            <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                                    <!-- Error Message -->
+                                </div>
+                                <div class="col-lg-6 login-btm login-button">
+                                    <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-2"></div>
+            </div>
+        </div>
 
 
    <script src="../assets/js/login.js"></script> 

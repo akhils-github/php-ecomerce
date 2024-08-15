@@ -1,10 +1,9 @@
 <?php
-$pageTitle = "Product Create";
+$pageTitle = "Product Details";
 ob_start(); // Start output buffering
 $content = ob_get_clean(); // Get the buffered content
 include('../../common/sidebar.php');
-session_start();
-include('../../config/db.php');
+
 
 
 
@@ -32,7 +31,7 @@ if ($foodItem) {
      $stmt->bind_param("i", $id);
  
      if ($stmt->execute()) {
-         echo "Food item deleted successfully. <a href='food_items_list.php'>Back to Food Items List</a>";
+         echo "Food item deleted successfully.";
      } else {
          echo "Error: " . $stmt->error;
      }
@@ -51,10 +50,10 @@ $result = $conn->query("SELECT food_items.id, food_items.name, food_items.descri
 
 
 <section class="table__header">
-            <h1>Customer's Orders</h1>
-       <div class="create-btn">
+            <h1>Products Listing</h1>
+       <a href="create.php" class="create-btn">
         create
-       </div>
+       </a>
         </section>
 <section class="table__body">
             <table>
@@ -100,3 +99,4 @@ $result = $conn->query("SELECT food_items.id, food_items.name, food_items.descri
                 </tbody>
             </table>
         </section>
+

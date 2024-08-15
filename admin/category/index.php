@@ -1,13 +1,10 @@
 <?php
-$pageTitle = "Product Create";
+$pageTitle = "Category Create";
 ob_start(); // Start output buffering
 $content = ob_get_clean(); // Get the buffered content
 include('../../common/sidebar.php');
-session_start();
-include('../../config/db.php');
-if (!isset($_SESSION['admin'])) {
-    header("Location: login.php");
-}
+
+
 $id = $_GET['id'];
 if($id ){
       
@@ -29,20 +26,23 @@ if($id ){
 $result = $conn->query("SELECT *
                         FROM categories
                         ");
+
+                    
 ?>
 
 
 <section class="table__header">
-            <h1>Customer's Orders</h1>
-       <div class="create-btn">
+            <h1>Category Details</h1>
+            <a href="create.php" class="create-btn">
         create
-       </div>
+       </a>
         </section>
 <section class="table__body">
             <table>
                 <thead>
                     <tr>
                         <th> Id </th>
+                        <th> Image </th>
                         <th> Category Name </th>
                         <th> Description </th>
                         <th> Action </th>
@@ -53,7 +53,10 @@ $result = $conn->query("SELECT *
                 <?php while ($row = $result->fetch_assoc()): ?>
 
                     <tr>
-                    
+                    <td><!-- Display main image -->
+            <?php if ($row['image']): ?>
+                <img width=100 height=200 src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
+            <?php endif; ?></td>
             <td><?php echo htmlspecialchars($row['id']); ?></td>
             <td><?php echo htmlspecialchars($row['name']); ?></td>
             <td><?php echo htmlspecialchars($row['description']); ?></td>

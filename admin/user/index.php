@@ -2,14 +2,22 @@
 $pageTitle = "User Details";
 ob_start(); // Start output buffering
 $content = ob_get_clean(); // Get the buffered content
-include('../index.php'); 
+include('../../common/sidebar.php');
 
+$id = $_GET['id'];
+if($id ){
+   // Prepare and execute deletion query
+   $stmt = $conn->prepare("DELETE FROM users WHERE id = ?");
+   $stmt->bind_param("i", $id);
+   if ($stmt->execute()) {
+    echo "Users deleted successfully.>";
+} else {
+    echo "Error: " . $stmt->error;
+}
+$stmt->close();
 
-session_start();
-include('../config/db.php');
-
-if (!isset($_SESSION['admin'])) {
-    header("Location: login.php");
+}else {
+  echo "Users not found.";
 }
 
 
@@ -17,41 +25,45 @@ if (!isset($_SESSION['admin'])) {
 $sql = "SELECT id, username FROM users WHERE role != 'admin'";
 $result = $conn->query($sql);
 ?>
-<div class="p-5">
-<div class="mx-auto text-center mb-5" style="width: 100%;">
-<h5 class="card-title h3">User Details</h5>
 
-</div>
-<table class="table align-middle mb-0 bg-white w-75">
-  <thead class="bg-light">
-    <tr>
-      <th>Id</th>
-      <th>Username</th>
-        <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php while ($row = $result->fetch_assoc()) { ?>
-    <tr>
-      <td>
 
-       <?php echo $row['id']; ?>
-      </td>
-      <td>
-        <p class="fw-normal mb-1"><?php echo $row['username']; ?></p>
-      </td>
-   
-      <td>
-        <button type="button" class="btn btn-warning btn-sm btn-rounded">
-          Edit
-        </button>
-        <button type="button" class="btn btn-danger btn-sm btn-rounded">
-          Delete
-        </button>
-      </td>
-    </tr>
-    <?php } ?>
- 
-  </tbody>
-</table>
-</div>
+<section class="table__header">
+            <h1>User Details</h1>
+       <!-- <a href="create.php" class="create-btn">
+        create
+       </a> -->
+        </section>
+<section class="table__body">
+            <table>
+                <thead>
+
+                    <tr>
+                        <th> Id </th>
+                        <th> Username </th>
+                        <th> Actions </th>
+                  
+                    </tr>
+
+                </thead>
+                <tbody >
+                <?php while ($row = $result->fetch_assoc()): ?>
+
+                    <tr>
+             
+            <td> <?php echo $row['id']; ?></td>
+          
+
+            <td>        <?php echo $row['username']; ?>
+            </td>
+            <td  class="action">
+
+                <a href="edit.php?id=<?php echo $row['id']; ?>" class="status delivered">Edit</a> 
+                <a  href="?id=<?php echo $row['id']; ?> "onclick="return confirm('Are you sure you want to delete this food item?');" class="status cancelled">Delete</a>
+            </td>
+                    </tr>
+        <?php endwhile; ?>
+
+        
+                </tbody>
+            </table>
+        </section>

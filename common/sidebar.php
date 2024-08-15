@@ -1,3 +1,19 @@
+<?php
+session_start();
+include('../../config/db.php');
+
+
+$projectName = basename(dirname(__DIR__, 1)); // Adjusting to go two levels up from the current file's directory
+$adminUrl = "/$projectName/admin/";
+
+
+if (!isset($_SESSION['admin'])) {
+  // Corrected URL construction in header
+  header("Location: " . $adminUrl . "login.php");
+  exit(); // Always call exit() after a redirect to stop further script execution
+}
+?>
+
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
 <html lang="en">
@@ -14,6 +30,7 @@
       rel="stylesheet"
     />
   </head>
+ 
   <body>
     <nav>
       <div class="logo">
@@ -28,26 +45,21 @@
 
         <div class="sidebar-content">
           <ul class="lists">
-            <!-- <li class="list">
-              <a href="#" class="nav-link">
-                <i class="bx bx-home-alt icon"></i>
-                <span class="link">Dashboard</span>
-              </a>
-            </li> -->
+          
             <li class="list">
-              <a href="products" class="nav-link">
+              <a href="<?php echo $adminUrl; ?>/user" class="nav-link">
                 <i class='bx bx-user icon'></i>
                 <span class="link">Customers</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="<?php echo $adminUrl; ?>/category" class="nav-link">
                 <i class='bx bx-category icon' ></i>
                 <span class="link">Categories</span>
               </a>
             </li>
             <li class="list">
-              <a href="#" class="nav-link">
+              <a href="<?php echo $adminUrl; ?>/products" class="nav-link">
                 <!-- <i class="bx bx-message-rounded icon"></i> -->
                 <i class='bx bx-food-menu icon' ></i>
                 <span class="link">Food Items</span>

@@ -38,72 +38,10 @@ include('../common/navbar.php');
 </section>
 
 
-<section class="speciality" id="speciality">
 
-    <h1 class="heading"> our <span>speciality</span> </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <img class="image" src="../assets/images/s-img-1.jpg" alt="">
-            <div class="content">
-                <img src="../assets/images/s-1.png" alt="">
-                <h3>TASTY BURGER</h3>
-                <p>
-                    We offer a variety of burgers, including veg, non-veg, and more. Please note that you can order up to 5 burgers in total, but you cannot order just 1 burger through this website.
-                </p>
-            </div>
-        </div>
-        <div class="box">
-            <img class="image" src="../assets/images/s-img-2.jpg" alt="">
-            <div class="content">
-                <img src="../assets/images/s-2.png" alt="">
-                <h3>tasty pizza</h3>
-                <p>We offer a variety of pizzas, including veg, non-veg, and more. Please note that you can order up to 5 pizzas in total, but ordering only 1 pizza is not possible through this website.
-
-</p>
-                
-            </div>
-        </div>
-        <div class="box">
-            <img class="image" src="../assets/images/s-img-3.jpg" alt="">
-            <div class="content">
-                <img src="../assets/images/s-3.png" alt="">
-                <h3>COLD ICE-CREAM</h3>
-                <p>We offer a variety of ice creams, including different flavors and types. Please note that you can order up to 5 ice creams in total, but ordering only 1 ice cream is not possible through this website</p>
-                
-            </div>
-        </div>
-        <div class="box">
-            <img class="image" src="../assets/images/lunch.jpg" alt="">
-            <div class="content">
-                <img src="../assets/images/s-4.png" alt="">
-                <h3>LUNCH</h3>
-                <p>We offer a diverse selection of lunch options, including vegetarian, non-vegetarian, and combination meals. You can easily order these meals through our website.</p>
-                
-            </div>
-        </div>
-        <div class="box">
-            <img class="image" src="../assets/images/snack.jpg" alt="">
-            <div class="content">
-                <img src="../assets/images/s-5.png" alt="">
-                <h3>SNACKS</h3>
-                <p>We offer a variety of snack options, including vegetarian, non-vegetarian, and mixed veg and non-veg selections. You can order up to 5 snacks through our website, but please note that ordering only 1 snack is not allowed.
-
-</p>
-                
-            </div>
-        </div>
-        <div class="box">
-            <img class="image" src="../assets/images/s-img-6.jpg" alt="">
-            <div class="content">
-                <img src="../assets/images/s-6.png" alt="">
-                <h3>TASTY BREAKFAST</h3>
-                <p>We offer a wide range of breakfast options, including vegetarian, non-vegetarian, and mixed veg and non-veg meals. You can conveniently order these meals through our website.</p>
-            </div>
-        </div>
-    </div>
-</section>
+<?php
+include('./products/category.php'); 
+?>
 
 
 <section class="steps">
@@ -126,26 +64,12 @@ include('../common/navbar.php');
    </div>
 </section>
 
-<section class="gallery" id="gallery">
 
-    <h1 class="heading">our food <span>gallery</span></h1>
+<?php
+include('./products/product.php'); 
+?>
 
-    <div class="box-container">
-    <?php while ($row = $result->fetch_assoc()): ?>
-        <div class="box">
-        <?php if ($row['image']): ?>
-            <img src="./<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
-            <?php endif; ?>
 
-            <div class="content">
-                <h3><?php echo htmlspecialchars($row['name']); ?></h3>
-                <p><?php echo htmlspecialchars($row['description']); ?>!</p>
-                <a href="#" class="btn">order now</a>
-            </div>
-        </div>
-        <?php endwhile; ?>
-    </div>
-</section>
 
 <setion class="order" id="order">
 
