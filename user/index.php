@@ -1,30 +1,42 @@
+<?php 
+session_start();
+include('../config/db.php');
+// Fetch food items
+$result = $conn->query("SELECT food_items.id, food_items.name, food_items.description, food_items.price, food_items.image, food_items.morepic, categories.name AS category_name
+                        FROM food_items
+                        LEFT JOIN categories ON food_items.category_id = categories.id");
+                       
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RESTAURANT</title>
+    <title>CANTEEN</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
     <!-- header -->
-<?php
+    <?php
 include('../common/navbar.php'); 
 ?>
 
 <section class="home" id="home">
     <div class="content">
-        <h3>food made with love</h3>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis reprehenderit maiores ipsum possimus ad! Culpa quos eum dolores! Dolor quos mollitia delectus fugit impedit obcaecati odio molestiae dignissimos doloribus, fugiat expedita, eos excepturi! Quidem est illum molestias itaque doloribus sed debitis eveniet dolorem, nulla saepe, deleniti ullam fugiat iure dicta?</p>
-        <a href="#" class="btn">order now</a>
+        <h3>Savor the flavor of homemade goodness</h3>
+        <p>Enjoy the comforting taste of home-cooked meals at our canteen. We make each dish with care and quality ingredients, so every bite feels like home. Have a great day!</p>
+        <!-- <a href="#" class="btn">order now</a> -->
     </div>
 
     <div class="image">
-        <img src="../assets/images/home-img.png" alt="">
+        <img src="../assets/images/homepic.png" alt="">
     </div>
 </section>
+
 
 
 <?php
