@@ -1,10 +1,9 @@
 <?php
-$pageTitle = "Product Create";
+$pageTitle = "Product Edit";
 ob_start(); // Start output buffering
 $content = ob_get_clean(); // Get the buffered content
 include('../../common/sidebar.php');
-session_start();
-include('../../config/db.php');
+
 
 // Retrieve food item ID from URL
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
@@ -68,7 +67,7 @@ if ($stmt->execute()) {
 ?>
 
 <div class="container">
-    <div class="title">Create Products</div>
+    <div class="title">Edit Products</div>
     <div class="content">
       <form method="post" enctype="multipart/form-data">
         <div class="user-details">

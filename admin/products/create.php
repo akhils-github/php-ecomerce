@@ -3,8 +3,7 @@ $pageTitle = "Product Create";
 ob_start(); // Start output buffering
 $content = ob_get_clean(); // Get the buffered content
 include('../../common/sidebar.php');
-session_start();
-include('../../config/db.php');
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -16,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $is_sold = isset($_POST['is_sold']) ? 1 : 0;
 
     // Handle image upload
-    $uploadDir = 'uploads/';
+    $uploadDir = '../../uploads/products/';
     if (!is_dir($uploadDir)) {
         mkdir($uploadDir, 0755, true); // Create directory if it doesn't exist
     }
@@ -64,6 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . $conn->error;
     }
 }
+$projectName = basename(dirname(__DIR__, 2)); // Adjusting to go two levels up from the current file's directory
+$cancelUrl = "/$projectName/admin/products";
 ?>
 
 <div class="container">
@@ -114,10 +115,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
            
         </div>  
         </div>
-      
+      <div class="btn-group">
+      <div class="button">
+          <a href="<?php echo $cancelUrl; ?>" > Cancel </a>
+        </div>
         <div class="button">
           <input type="submit" value="Create">
         </div>
+      </div>
+       
       </form>
     </div>
   </div>

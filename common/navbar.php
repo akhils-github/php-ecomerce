@@ -10,7 +10,6 @@ session_start(); // Start the session
 
     <nav class="navbar">
  
-        <a href="#review">User</a>
         <a href="#order">Cart</a>
         <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
             <!-- User is logged in -->

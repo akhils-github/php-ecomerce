@@ -11,7 +11,11 @@
 
     <main>
         <!-- Content will be included here -->
-        <?php echo isset($content) ? $content : ''; ?>
+        <?php echo isset($content) ? $content : '';
+        // config/config.php
+define('BASE_PATH', __DIR__ . '/../');
+
+         ?>
     </main>
 
 
