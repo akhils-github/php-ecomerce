@@ -2,8 +2,11 @@
 
 session_start();
 include('../config/db.php');
+// Initialize error messages
+$error_username = $error_password = $error_confirm_password = $error_phone = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     $username = $_POST['username'];
     $password = $_POST['password'];
     $action = $_POST['action'];
@@ -25,17 +28,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Invalid username!";
     }
   } elseif ($action == 'register' ) {
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $sql = "INSERT INTO users (username, password, role) VALUES ('$username', '$password', 'user')";
-    if ($conn->query($sql) === TRUE) {
-      $_SESSION['username'] = $user['username'];
-      $_SESSION['loggedin'] = true; // Set logged-in status
-      header("Location: index.php");
-        // echo "Registration successful!";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    $confirm_password = $_POST['cppassword'];
+    $class = $_POST['class'];
+    $phone = $_POST['phone'];
+
+    if ($password !== $confirm_password) {
+      $error_confirm_password = "Passwords do not match!";
   }
+  if (empty($error_confirm_password) && empty($error_phone)) {
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $sql = "INSERT INTO users (username, password, class, phone, role) VALUES ('$username', '$password', '$class', '$phone', 'user')";
+    
+    if ($conn->query($sql) === TRUE) {
+        $_SESSION['username'] = $username;
+        $_SESSION['loggedin'] = true; // Set logged-in status
+        header("Location: index.php");
+        exit();
+    } else {
+        $error_general = "Error: " . $conn->error;
+    }
+}
+  }
+  
 }
 
 
@@ -51,16 +65,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-<div class="container" id="container" >
+<div class="container right-panel-active" id="container" >
 	<div class="form-container sign-up-container">
 		<form method="post">
-			<h1>Create Account</h1>
+			<h3>Create Account</h3>
 	
 			<span>or use your email for registration</span>
       <input type="hidden" name="action" value="register">
 			<input type="text" name="username" placeholder="Username" required />
-			<!-- <input type="email" placeholder="Email" /> -->
+			<input type="text" name="class" placeholder="Class" />
+			<input type="text" name="phone" placeholder="Phone Number" />
 			<input type="password"  name="password" placeholder="Password" required />
+			<input type="password"  name="cppassword" placeholder="Confirm Password" required />
+      <div style="color: red;size:0.65rem;"><?php echo $error_confirm_password; ?></div>
+
 			<button type="submit">Sign Up</button>
 		</form>
 	</div>
