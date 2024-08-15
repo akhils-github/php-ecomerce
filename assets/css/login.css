@@ -7,7 +7,7 @@
 
 body {
 	/* background: #f6f5f7; */
-    background-image: url("../images/login-banner.jpg");
+    background-image: url("../images/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 	display: flex;
