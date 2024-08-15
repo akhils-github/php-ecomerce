@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 
-<body>
+<body style="overflow: hidden;">
 <div class="container right-panel-active" id="container">
   <div class="form-container sign-up-container">
     <form method="post">
