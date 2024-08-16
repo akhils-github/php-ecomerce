@@ -8,6 +8,7 @@ include('./src/config/db.php');
 // $result = $conn->query("SELECT food_items.id, food_items.name, food_items.description, food_items.price, food_items.image, food_items.morepic, categories.name AS category_name
 //                         FROM food_items
 //                         LEFT JOIN categories ON food_items.category_id = categories.id");
+                       
 
 ?>
 
@@ -16,11 +17,12 @@ include('./src/config/db.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./public/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="./public/favicon.svg" type="image/svg+xml">
     <!-- 
     - custom css link
   -->
   <link rel="stylesheet" href="./public/assets/css/style.css">
+
   <!-- 
     - preload images
   -->
