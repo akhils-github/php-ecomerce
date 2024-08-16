@@ -21,7 +21,6 @@ include('./src/config/db.php');
     - custom css link
   -->
   <link rel="stylesheet" href="./public/assets/css/style.css">
-
   <!-- 
     - preload images
   -->
