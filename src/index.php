@@ -2,8 +2,6 @@
   $projectName = basename(dirname(__DIR__, 1)); // Adjusting to go two levels up from the current file's directory
   $baseUrl = "/$projectName";
 
-                       
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

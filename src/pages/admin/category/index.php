@@ -24,6 +24,11 @@ if (isset($_GET['id'])) {
 $result = $conn->query("SELECT *
                         FROM categories
                         ");
+                       
+                        // Fetch Today's Special food items
+                        $sqlSpecials = "SELECT * FROM food_items WHERE is_special = 1";
+                        $resultSpecials = $conn->query($sqlSpecials);
+                      
 
                     
 ?>

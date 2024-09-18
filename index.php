@@ -42,7 +42,7 @@ include('./src/config/db.php');
   <div class="container">
 
     <h1>
-      <a href="#" class="logo">Canteen<span class="span">.</span></a>
+      <a href="#" class="logo">FOOD CORNER<span class="span"></span></a>
     </h1>
 
     <nav class="navbar" data-navbar>
@@ -129,9 +129,9 @@ include('./src/config/db.php');
 
           <div class="hero-content">
 
-            <p class="hero-subtitle">Eat Sleep And</p>
+            <p class="hero-subtitle">Taste the love in every bite!</p>
 
-            <h2 class="h1 hero-title">Supper delicious Burger in town!</h2>
+            <h2 class="h1 hero-title">Savour The Flavour Of Homemade Goodness</h2>
 
             <p class="hero-text">Food is any substance consumed to provide nutritional support for an organism.</p>
 
@@ -418,7 +418,7 @@ include('./src/pages/users/index.php');
 
                 </div>
 
-              </div>
+              </div> 
             </li>
 
             <li>
