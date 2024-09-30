@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['admin'] = $user['username'];
-            header("Location: ../");
+            header("Location: /Canteen/src/pages/admin/user/");
             echo " password!";
 
         } else {
