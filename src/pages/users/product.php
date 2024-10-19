@@ -5,9 +5,9 @@
 
 // include('./src/config/db.php');
 // Fetch food items
-$result = $conn->query("SELECT food_items.id, food_items.name, food_items.description, food_items.price, food_items.image, food_items.morepic, categories.name AS category_name
-                        FROM food_items
-                        LEFT JOIN categories ON food_items.category_id = categories.id");
+$result = $conn->query("SELECT items.id, items.name, items.description, items.price, items.images, items.extra_images, categories.name AS category_name
+                        FROM items
+                        LEFT JOIN categories ON items.category_id = categories.id");
                         $categories = $conn->query("SELECT *
                         FROM categories
                         ");
@@ -46,18 +46,22 @@ $result = $conn->query("SELECT food_items.id, food_items.name, food_items.descri
             <li>
               <div class="food-menu-card">
 
-                <div class="card-banner">
-                <?php if ($row['image']): 
-$imagePath = str_replace('../../', './../', htmlspecialchars($row['image']));
-?>
-<!-- <img class="image" src="<?php echo $imagePath; ?>" alt=""> -->
+                <div class="card-banner" 
+
+                >
+                <?php if ($row['images']): 
+                  $imagePath = str_replace('../../', 'src/pages/', htmlspecialchars($row['images']));
+                  ?>
+<img class="image" src="<?php echo $imagePath; ?>" alt="<?php echo $imagePath ?>" 
+style="width: 100%;height:100%;"
+>
 <?php endif; ?>
-                  <img src="./public/assets/images/food-menu-1.png" width="300" height="300" loading="lazy"
-                    alt="Fried Chicken Unlimited" class="w-100">
+                  <!-- <img src="src/pages/uploads/products/Samsung-Galaxy-S20-in.bookmyshow.com (2)_1729338268.png" width="300" height="300" loading="lazy"
+                    alt="Fried Chicken Unlimited" class="w-100"> -->
 
                   <div class="badge">-15%</div>
 
-                   <a  href="src/pages/users/detail.php" class="btn btn-a food-menu-btn">Order Now</a>
+                   <a  href="src/pages/users/detail.php?id=<?php echo $row['id']; ?>" class="btn btn-a food-menu-btn">Order Now</a>
 
                 </div>
 

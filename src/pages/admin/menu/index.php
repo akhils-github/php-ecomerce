@@ -40,9 +40,9 @@ if ($foodItem) {
  } 
 }
 // Fetch food items
-$result = $conn->query("SELECT items.id, items.name, items.description, items.price, items.images, items.extra_images, categories.name AS category_name
-                        FROM items
-                        LEFT JOIN categories ON items.category_id = categories.id");
+$result = $conn->query("SELECT menu_items.id, menu_items.name, menu_items.description, menu_items.price, menu_items.image, categories.name AS category_name
+                        FROM menu_items
+                        LEFT JOIN categories ON menu_items.category_id = categories.id");
 
 ?>
 
@@ -76,8 +76,8 @@ $result = $conn->query("SELECT items.id, items.name, items.description, items.pr
              
             <td><?php echo htmlspecialchars($row['id']); ?></td>
             <td><!-- Display main image -->
-            <?php if ($row['images']): ?>
-                <img width=100 height=200 src="<?php echo htmlspecialchars($row['images']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
+            <?php if ($row['image']): ?>
+                <img width=100 height=200 src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
             <?php endif; ?>
         </td>
 

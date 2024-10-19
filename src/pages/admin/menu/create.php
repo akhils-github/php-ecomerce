@@ -9,10 +9,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $description = $_POST['description'];
     $price = $_POST['price'];
-    $quantity = $_POST['quantity'];
+    // $quantity = $_POST['quantity'];
     $category_id = $_POST['category_id'];
     // $is_sold = isset($_POST['is_sold']) ? 1 : 0;
-    $is_special = isset($_POST['is_special']) ? 1 : 0;
+    // $is_special = isset($_POST['is_special']) ? 1 : 0;
 
     // Handle image upload
     $uploadDir = '../../uploads/products/';
@@ -54,8 +54,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     $morePicsJson = json_encode($morePics);
 
-    $sql = "INSERT INTO items(name, description, price, images, extra_images, quantity, category_id, is_special) 
-            VALUES ('$name', '$description', '$price', '$mainImagePath', '$morePicsJson', '$quantity', '$category_id', '$is_special')";
+    $sql = "INSERT INTO menu_items(name, description, price,image, category_id) 
+            VALUES ('$name', '$description','$price', '$mainImagePath', '$category_id')";
 
     if ($conn->query($sql) === TRUE) {
         echo "New food item created successfully";
@@ -68,12 +68,12 @@ $cancelUrl = "/$projectName/admin/products";
 ?>
 
 <div class="container">
-    <div class="title">Create Products</div>
+    <div class="title">Create Menu Items</div>
     <div class="content">
       <form method="post" enctype="multipart/form-data">
         <div class="user-details">
           <div class="input-box">
-            <span class="details">Food Name</span>
+            <span class="details">Menu Name</span>
             <input type="text" id="name" name="name" placeholder="Enter your Food name" required>
           </div>
           <div class="input-box">
@@ -92,10 +92,10 @@ $cancelUrl = "/$projectName/admin/products";
             <span class="details">Password</span>
             <input type="text" placeholder="Enter your password" required>
           </div> -->
-          <div class="input-box">
+          <!-- <div class="input-box">
             <span class="details">Quantity</span>
             <input type="number" name="quantity" placeholder="Enter  quantity" required>
-          </div>
+          </div> -->
           <div class="input-box">
             <span class="details">Category</span>
             <select id="category_id" name="category_id" class="select-box" required>
@@ -108,12 +108,12 @@ $cancelUrl = "/$projectName/admin/products";
             ?>
               </select>
           </div>
-          <div class="check-box">
+          <!-- <div class="check-box">
           <input type="checkbox" value="1" name="is_special" id="is_special">
          
             <span class="gender-title">Special Item</span>
            
-        </div>  
+        </div>   -->
         </div>
       <div class="btn-group">
       <div class="button">

@@ -30,10 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
   $sql = "INSERT INTO categories (name , description ,image) VALUES ('$name', '$description','$mainImagePath')";
-  $is_special = isset($_POST['is_special']) ? 1 : 0;
+  // $is_special = isset($_POST['is_special']) ? 1 : 0;
 
-$sql = "INSERT INTO food_items (name, description, price, image, morepic, quantity, category_id, is_sold, is_special) 
-        VALUES ('$name', '$description', '$price', '$mainImagePath', '$morePicsJson', '$quantity', '$category_id', '$is_sold', '$is_special')";
+// $sql = "INSERT INTO items (name, description, price, image, morepic, quantity, category_id, is_sold, is_special) 
+//         VALUES ('$name', '$description', '$price', '$mainImagePath', '$morePicsJson', '$quantity', '$category_id', '$is_sold', '$is_special')";
 
 
   if ($conn->query($sql) === TRUE) {
@@ -56,10 +56,10 @@ $cancelUrl = "/$projectName/admin/category";
             <span class="details">Category Name</span>
             <input type="text" name="name" placeholder="Enter your item name" required>
           </div>
-          <div class="input-box">
+          <!-- <div class="input-box">
     <span class="details">Mark as Today's Special</span>
     <input type="checkbox" id="is_special" name="is_special" value="1">
-</div>
+</div> -->
 
 
           <div class="input-box full">

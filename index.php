@@ -85,7 +85,7 @@ include('./src/config/db.php');
       <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
       <a href="./src/config/logout.php" class="btn btn-a btn-hover">Logout</a>
       <?php else: ?>
-      <a href="src/pages/users/auth/login.php" class="btn btn-a btn-hover">Login</a>
+      <a href="src/pages/auth/user/login.php" class="btn btn-a btn-hover">Login</a>
       <?php endif; ?>
 
       <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
@@ -162,7 +162,7 @@ include('./src/pages/users/category.php');
 ?>
       
       <?php
-include('./src/pages/users/index.php'); 
+include('./src/pages/users/product.php'); 
 ?>
       
 

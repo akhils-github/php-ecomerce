@@ -37,6 +37,13 @@ $baseUrl = "/$projectName";
               </a>
             </li>
             <li class="list">
+              <a href="<?php echo $baseUrl; ?>/src/pages/admin/menu" class="nav-link">
+                <!-- <i class="bx bx-message-rounded icon"></i> -->
+                <i class='bx bx-food-menu icon' ></i>
+                <span class="link">Menu List</span>
+              </a>
+            </li>
+            <li class="list">
               <a href="#" class="nav-link">
                 <i class='bx bx-list-plus icon'></i>
                 <span class="link">Order Management</span>

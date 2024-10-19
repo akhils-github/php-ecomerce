@@ -6,15 +6,17 @@ include('../../../config/db.php');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    // $username = "cateenAdmin";
+    // $password = "Admin@123";
 
-    $sql = "SELECT * FROM users WHERE username='$username' AND role='admin'";
-    $result = $conn->query($sql);
+    // $sql = "SELECT * FROM users WHERE username='$username' AND role='admin'";
+    // $result = $conn->query($sql);
 
-    if ($result->num_rows == 1) {
-        $user = $result->fetch_assoc();
-        if (password_verify($password, $user['password'])) {
+    if ( $username =="cateenAdmin") {
+       
+        if ( $password == "Admin@123") {
             $_SESSION['admin'] = $user['username'];
-            header("Location: /Canteen/src/pages/admin/user/");
+            header("Location: $baseUrl/src/pages/admin/user/");
             echo " password!";
 
         } else {
@@ -23,6 +25,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "Invalid username!";
     }
+    // if ($result->num_rows == 1) {
+    //     $user = $result->fetch_assoc();
+    //     if (password_verify($password, $user['password'])) {
+    //         $_SESSION['admin'] = $user['username'];
+    //         header("Location: /Canteen/src/pages/admin/user/");
+    //         echo " password!";
+
+    //     } else {
+    //         echo "Invalid password!";
+    //     }
+    // } else {
+    //     echo "Invalid username!";
+    // }
 }
 ?>
 

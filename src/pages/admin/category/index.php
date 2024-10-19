@@ -21,16 +21,10 @@ if (isset($_GET['id'])) {
     $stmt->close();
 } 
 // Fetch food items
-$result = $conn->query("SELECT *
-                        FROM categories
-                        ");
-                       
-                        // Fetch Today's Special food items
-                        $sqlSpecials = "SELECT * FROM food_items WHERE is_special = 1";
-                        $resultSpecials = $conn->query($sqlSpecials);
-                      
-
-                    
+$result = $conn->query("SELECT * FROM categories");   
+// Fetch Today's Special food items
+$sqlSpecials = "SELECT * FROM items WHERE is_special = 1";
+$resultSpecials = $conn->query($sqlSpecials);                   
 ?>
 
 
