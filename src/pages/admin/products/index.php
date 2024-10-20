@@ -9,17 +9,17 @@ include('../index.php');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-$result = $conn->query("SELECT image, morepic FROM items WHERE id = $id");
+$result = $conn->query("SELECT images, extra_images FROM items WHERE id = $id");
 $foodItem = $result->fetch_assoc();
 if ($foodItem) {
     // Delete main image file if it exists
-    if ($foodItem['image'] && file_exists($foodItem['image'])) {
-        unlink($foodItem['image']);
+    if ($foodItem['images'] && file_exists($foodItem['images'])) {
+        unlink($foodItem['images']);
     }
 
        // Delete additional images if they exist
-       if ($foodItem['morepic']) {
-        $morePics = json_decode($foodItem['morepic'], true);
+       if ($foodItem['extra_images']) {
+        $morePics = json_decode($foodItem['extra_images'], true);
         foreach ($morePics as $pic) {
             if (file_exists($pic)) {
                 unlink($pic);
