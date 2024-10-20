@@ -9,7 +9,7 @@ include('../index.php');
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-$result = $conn->query("SELECT image, morepic FROM items WHERE id = $id");
+$result = $conn->query("SELECT image FROM menu_items WHERE id = $id");
 $foodItem = $result->fetch_assoc();
 if ($foodItem) {
     // Delete main image file if it exists
@@ -18,16 +18,9 @@ if ($foodItem) {
     }
 
        // Delete additional images if they exist
-       if ($foodItem['morepic']) {
-        $morePics = json_decode($foodItem['morepic'], true);
-        foreach ($morePics as $pic) {
-            if (file_exists($pic)) {
-                unlink($pic);
-            }
-        }
-    }
+    //    
      // Prepare and execute deletion query
-     $stmt = $conn->prepare("DELETE FROM items WHERE id = ?");
+     $stmt = $conn->prepare("DELETE FROM menu_items WHERE id = ?");
      $stmt->bind_param("i", $id);
  
      if ($stmt->execute()) {
