@@ -26,18 +26,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $description = isset($_POST['description']) ? $_POST['description'] : '';
 
     // Handle image upload
-$imagePath = '';
+    $uploadDir = '../../uploads/products/';
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true); // Create directory if it doesn't exist
+    }
+    function generateUniqueFilename($filename) {
+      $ext = pathinfo($filename, PATHINFO_EXTENSION);
+      $basename = pathinfo($filename, PATHINFO_FILENAME);
+      $uniqueName = $basename . '_' . time() . '.' . $ext;
+      return $uniqueName;
+  }
+$mainImageName = generateUniqueFilename($_FILES['image']['name']);
+$mainImagePath = $uploadDir . $mainImageName;
+if (move_uploaded_file($_FILES['image']['tmp_name'], $mainImagePath)) {
+    echo "Main image uploaded successfully.<br>";
+} else {
+    echo "Error uploading main image.<br>";
+}
 if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
     $targetDir = "uploads/";
     $imageName = basename($_FILES['image']['name']);
-    $imagePath = $targetDir . $imageName;
-    move_uploaded_file($_FILES['image']['tmp_name'], $imagePath);
-    
+    $mainImagePath = $uploadDir . $imageName;
+    move_uploaded_file($_FILES['image']['tmp_name'], $mainImagePath);
+
 } else {
     // Keep existing image if no new image is uploaded
     $result = $conn->query("SELECT image FROM categories WHERE id = $id");
     $existingImage = $result->fetch_assoc();
-    $imagePath = $existingImage['image'];
+    $mainImagePath = $existingImage['image'];
 }
 
 // Check if the 'is_special' checkbox was checked
@@ -50,7 +66,7 @@ image = ?
 WHERE id = ?";
 
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("sssi", $name, $description, $imagePath, $id);
+$stmt->bind_param("sssi", $name, $description, $mainImagePath, $id);
 if ($stmt->execute()) {
   $error_message = "Category updated successfully. <a href='categories.php'>Back to Categories List</a>";
 } else {
@@ -61,7 +77,7 @@ if ($stmt->execute()) {
 ?>
 
 <div class="container">
-    <div class="title">Create Products</div>
+    <div class="title">Edit category</div>
     <div class="content">
       <form method="post" enctype="multipart/form-data">
         <div class="user-details">
@@ -84,7 +100,7 @@ if ($stmt->execute()) {
           <div class="input-box">
             <span class="details">Image</span>
             <?php if ($foodItem['image']): ?>
-            <img src="<?php echo htmlspecialchars($foodItem['image']); ?>" alt="Food Image" style="max-width: 100%; max-height: 70px;">
+            <img src="<?php echo htmlspecialchars($foodItem['image']); ?>" alt="<?php echo htmlspecialchars($foodItem['image']); ?>" style="max-width: 100%; max-height: 70px;">
         <?php endif; ?>
             <!-- <input type="file" placeholder="Enter your Image"  id="image" name="image" accept="image/*"required value="<?php echo htmlspecialchars($foodItem['name']); ?>"> -->
           </div>

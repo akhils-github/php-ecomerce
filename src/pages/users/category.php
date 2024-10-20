@@ -1,10 +1,9 @@
 <?php 
   $projectName = basename(dirname(__DIR__, 1)); // Adjusting to go two levels up from the current file's directory
   $baseUrl = "/$projectName";
-  if ($baseUrl === "/miniproject"){
-  include('../../index.php'); 
+  session_start();
+    include('../../index.php'); 
   include('../../config/db.php');
-  }
   $result = $conn->query("SELECT *
   FROM categories
   ");

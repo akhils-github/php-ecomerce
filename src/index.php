@@ -1,7 +1,8 @@
 <?php 
   $projectName = basename(dirname(__DIR__, 1)); // Adjusting to go two levels up from the current file's directory
   $baseUrl = "/$projectName";
-
+  // session_start();
+  // include('./src/config/db.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,43 +15,39 @@
   -->
   <link rel="stylesheet" href="<?php echo $baseUrl; ?>/public/assets/css/style.css">
 
-
     <title>Canteen</title>
 </head>
 <body id="top">
 
-<!-- 
-  - #HEADER
--->
 
 <header class="header active" data-header>
   <div class="container">
 
     <h1>
-      <a href="#" class="logo">Canteen<span class="span">.</span></a>
+      <a href="<?php echo $baseUrl; ?>" class="logo">FOOD CORNER<span class="span">.</span></a>
     </h1>
 
     <nav class="navbar" data-navbar>
       <ul class="navbar-list">
 
         <li class="nav-item">
-          <a href="#home" class="navbar-link" data-nav-link>Home</a>
+          <a href="<?php echo $baseUrl; ?>" class="navbar-link" data-nav-link>Home</a>
         </li>
 
         <li class="nav-item">
-          <a href="#about" class="navbar-link" data-nav-link>About Us</a>
+          <!-- <a href="#about" class="navbar-link" data-nav-link>About Us</a> -->
         </li>
 
         <li class="nav-item">
-          <a href="#food-menu" class="navbar-link" data-nav-link>Shop</a>
+          <!-- <a href="#food-menu" class="navbar-link" data-nav-link>Shop</a> -->
         </li>
 
         <li class="nav-item">
-          <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+          <!-- <a href="#blog" class="navbar-link" data-nav-link>Blog</a> -->
         </li>
 
         <li class="nav-item">
-          <a href="#" class="navbar-link" data-nav-link>Contact Us</a>
+          <!-- <a href="#" class="navbar-link" data-nav-link>Contact Us</a> -->
         </li>
 
       </ul>
@@ -84,9 +81,6 @@
 </header>
 
 
-  <!-- 
-    - #SEARCH BOX
-  -->
 
   <div class="search-container" data-search-container>
 

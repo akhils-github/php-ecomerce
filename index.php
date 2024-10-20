@@ -22,6 +22,7 @@ include('./src/config/db.php');
     - custom css link
   -->
   <link rel="stylesheet" href="./public/assets/css/style.css">
+  <link rel="stylesheet" href="./public/assets/css/bootstrap.min.css">
 
   <!-- 
     - preload images
@@ -37,7 +38,6 @@ include('./src/config/db.php');
 <!-- 
   - #HEADER
 -->
-
 <header class="header" data-header>
   <div class="container">
 
@@ -53,7 +53,7 @@ include('./src/config/db.php');
         </li>
 
         <li class="nav-item">
-          <a href="./src/pages/users/menu.php" class="navbar-link" data-nav-link>Menu</a>
+          <!-- <a href="./src/pages/users/menu.php" class="navbar-link" data-nav-link>Menu</a> -->
         </li>
 
         <li class="nav-item">
@@ -98,9 +98,6 @@ include('./src/config/db.php');
   </div>
 </header>
 
-  <!-- 
-    - #SEARCH BOX
-  -->
 
   <div class="search-container" data-search-container>
 
@@ -155,11 +152,9 @@ include('./src/config/db.php');
     
   
       <?php
-include('./src/pages/users/special.php'); 
+include('./src/pages/users/menu.php'); 
 ?>
-      <?php
-include('./src/pages/users/category.php'); 
-?>
+
       
       <?php
 include('./src/pages/users/product.php'); 
