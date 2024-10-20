@@ -1,6 +1,6 @@
 
 <?php 
-  $projectName = basename(dirname(__DIR__, 1)); // Adjusting to go two levels up from the current file's directory
+  $projectName = basename(dirname(__DIR__, )); // Adjusting to go two levels up from the current file's directory
   $baseUrl = "/$projectName";
 session_start();
 include('./src/config/db.php');
@@ -53,19 +53,19 @@ include('./src/config/db.php');
         </li>
 
         <li class="nav-item">
-          <a href="#about" class="navbar-link" data-nav-link>About Us</a>
+          <a href="./src/pages/users/menu.php" class="navbar-link" data-nav-link>Menu</a>
         </li>
 
         <li class="nav-item">
-          <a href="#food-menu" class="navbar-link" data-nav-link>Shop</a>
+          <a href="./src/pages/users/category.php" class="navbar-link" data-nav-link>Category</a>
         </li>
 
         <li class="nav-item">
-          <a href="#blog" class="navbar-link" data-nav-link>Blog</a>
+          <!-- <a href="#blog" class="navbar-link" data-nav-link>Blog</a> -->
         </li>
 
         <li class="nav-item">
-          <a href="#" class="navbar-link" data-nav-link>Contact Us</a>
+          <!-- <a href="#" class="navbar-link" data-nav-link>Contact Us</a> -->
         </li>
 
       </ul>
@@ -152,11 +152,11 @@ include('./src/config/db.php');
 
 
 
-
-
-      <!-- 
-        - #PROMO
-      -->
+    
+  
+      <?php
+include('./src/pages/users/special.php'); 
+?>
       <?php
 include('./src/pages/users/category.php'); 
 ?>
@@ -166,7 +166,7 @@ include('./src/pages/users/product.php');
 ?>
       
 
-      <section class="section section-divider white cta" style="background-image: url('./public/assets/images/hero-bg.jpg')">
+      <!-- <section class="section section-divider white cta" style="background-image: url('./public/assets/images/hero-bg.jpg')">
         <div class="container">
 
           <div class="cta-content">
@@ -194,7 +194,7 @@ include('./src/pages/users/product.php');
           </figure>
 
         </div>
-      </section>
+      </section> -->
 
 
 
@@ -204,7 +204,7 @@ include('./src/pages/users/product.php');
         - #DELIVERY
       -->
 
-      <section class="section section-divider gray delivery">
+      <!-- <section class="section section-divider gray delivery">
         <div class="container">
 
           <div class="delivery-content">
@@ -231,7 +231,7 @@ include('./src/pages/users/product.php');
           </figure>
 
         </div>
-      </section>
+      </section> -->
 
 
 
@@ -245,7 +245,7 @@ include('./src/pages/users/product.php');
       <!-- 
         - #BANNER
       -->
-
+<!-- 
       <section class="section section-divider gray banner">
         <div class="container">
 
@@ -324,7 +324,7 @@ include('./src/pages/users/product.php');
           </ul>
 
         </div>
-      </section>
+      </section> -->
 
 
 
@@ -334,172 +334,13 @@ include('./src/pages/users/product.php');
         - #BLOG
       -->
 
-      <section class="section section-divider white blog" id="blog">
-        <div class="container">
-
-          <p class="section-subtitle">Latest Blog Posts</p>
-
-          <h2 class="h2 section-title">
-            This Is All About <span class="span">Foods</span>
-          </h2>
-
-          <p class="section-text">
-            Food is any substance consumed to provide nutritional support for an organism.
-          </p>
-
-          <ul class="blog-list">
-
-            <li>
-              <div class="blog-card">
-
-                <div class="card-banner">
-                  <img src="./assets/public/images/blog-1.jpg" width="600" height="390" loading="lazy"
-                    alt="What Do You Think About Cheese Pizza Recipes?" class="w-100">
-
-                  <div class="badge">Pizza</div>
-                </div>
-
-                <div class="card-content">
-
-                  <div class="card-meta-wrapper">
-
-                    <a href="#" class="card-meta-link">
-                      <ion-icon name="calendar-outline"></ion-icon>
-
-                      <time class="meta-info" datetime="2022-01-01">Jan 01 2022</time>
-                    </a>
-
-                    <a href="#" class="card-meta-link">
-                      <ion-icon name="person-outline"></ion-icon>
-
-                      <p class="meta-info">Jonathan Smith</p>
-                    </a>
-
-                  </div>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">What Do You Think About Cheese Pizza Recipes?</a>
-                  </h3>
-
-                  <p class="card-text">
-                    Financial experts support or help you to to find out which way you can raise your funds more...
-                  </p>
-
-                  <a href="#" class="btn-link">
-                    <span>Read More</span>
-
-                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <div class="card-banner">
-                  <img src="./public/assets/images/blog-2.jpg" width="600" height="390" loading="lazy"
-                    alt="Making Chicken Strips With New Delicious Ingridents." class="w-100">
-
-                  <div class="badge">Burger</div>
-                </div>
-
-                <div class="card-content">
-
-                  <div class="card-meta-wrapper">
-
-                    <a href="#" class="card-meta-link">
-                      <ion-icon name="calendar-outline"></ion-icon>
-
-                      <time class="meta-info" datetime="2022-01-01">Jan 01 2022</time>
-                    </a>
-
-                    <a href="#" class="card-meta-link">
-                      <ion-icon name="person-outline"></ion-icon>
-
-                      <p class="meta-info">Jonathan Smith</p>
-                    </a>
-
-                  </div>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Making Chicken Strips With New Delicious Ingridents.</a>
-                  </h3>
-
-                  <p class="card-text">
-                    Financial experts support or help you to to find out which way you can raise your funds more...
-                  </p>
-
-                  <a href="#" class="btn-link">
-                    <span>Read More</span>
-
-                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="blog-card">
-
-                <div class="card-banner">
-                  <img src="./public/assets/images/blog-3.jpg" width="600" height="390" loading="lazy"
-                    alt="Innovative Hot Chessyraw Pasta Make Creator Fact." class="w-100">
-
-                  <div class="badge">Chicken</div>
-                </div>
-
-                <div class="card-content">
-
-                  <div class="card-meta-wrapper">
-
-                    <a href="#" class="card-meta-link">
-                      <ion-icon name="calendar-outline"></ion-icon>
-
-                      <time class="meta-info" datetime="2022-01-01">Jan 01 2022</time>
-                    </a>
-
-                    <a href="#" class="card-meta-link">
-                      <ion-icon name="person-outline"></ion-icon>
-
-                      <p class="meta-info">Jonathan Smith</p>
-                    </a>
-
-                  </div>
-
-                  <h3 class="h3">
-                    <a href="#" class="card-title">Innovative Hot Chessyraw Pasta Make Creator Fact.</a>
-                  </h3>
-
-                  <p class="card-text">
-                    Financial experts support or help you to to find out which way you can raise your funds more...
-                  </p>
-
-                  <a href="#" class="btn-link">
-                    <span>Read More</span>
-
-                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                  </a>
-
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
+   
 
 
 
 
 
-    </article>
+ 
   </main>
   <?php
 include('src/pages/users/cart.php'); 

@@ -1,7 +1,10 @@
 <?php 
   $projectName = basename(dirname(__DIR__, 1)); // Adjusting to go two levels up from the current file's directory
   $baseUrl = "/$projectName";
-
+  if ($baseUrl === "/miniproject"){
+  include('../../index.php'); 
+  include('../../config/db.php');
+  }
   $result = $conn->query("SELECT *
   FROM categories
   ");
@@ -10,13 +13,18 @@
 ?>
 <section class="section section-divider white promo">
         <div class="container">
+        <h2 class="h2 section-title" style="
+    text-align: center;
+    margin-bottom: 4rem;
+">
+           Categories <span class="span"></span>
+          </h2>
 
           <ul class="promo-list has-scrollbar">
           <?php while ($row = $result->fetch_assoc()): ?>
 
             <li class="promo-item">
               <div class="promo-card">
-
                 <div class="card-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none"
                     xmlns:v="https://vecta.io/nano">
@@ -37,10 +45,13 @@
                 <p class="card-text">
                 <?php echo htmlspecialchars($row['description']); ?>
                 </p>
+                <?php if ($row['image']): 
+                  $imagePath = str_replace('../../', 'src/pages/', htmlspecialchars($row['image']));
+                  ?>
 
-                <img src="./public/assets/images/promo-1.png" width="300" height="300" loading="lazy" alt="Maxican Pizza"
+                <img src="<?php echo $imagePath; ?>" width="300" height="300" loading="lazy" alt="<?php echo $imagePath; ?>"
                   class="w-100 card-banner">
-
+                  <?php endif; ?>
               </div>
             </li>
             <?php endwhile; ?>

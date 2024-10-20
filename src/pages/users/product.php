@@ -46,9 +46,7 @@ $result = $conn->query("SELECT items.id, items.name, items.description, items.pr
             <li>
               <div class="food-menu-card">
 
-                <div class="card-banner" 
-
-                >
+                <div class="card-banner" >
                 <?php if ($row['images']): 
                   $imagePath = str_replace('../../', 'src/pages/', htmlspecialchars($row['images']));
                   ?>
