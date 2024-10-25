@@ -83,7 +83,7 @@ function viewDetails()
                     <div class="row">
                         <div class="col-md-5">
                             <div class="single-product-img">
-                                <img src="./uploads/images/products/' . $product_image_one . '" alt="' . $product_title . '">
+                                <img src="./uploads/images/products/' . $product_image_one . '" alt="' . $product_title . '" class="w-100 h-100">
                             </div>
                         </div>
                         <div class="col-md-7">
