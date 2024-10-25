@@ -104,7 +104,7 @@
                         
                         <button class='btn btn-dark'><a class='text-light' href='./index.php'>Continue Shopping</a></button>
                         
-                        <button class='btn btn-dark'><a class='text-light' href='./user/account/checkout.php'>Checkout</a></button>
+                        <button class='btn btn-dark'><a class='text-light' href='./user/account/checkout.php'>Buy Now</a></button>
                         ";
                         }else{
                             echo "<input type='button' value='Continue Shopping' class='btn btn-dark' name='continue_shopping'>";

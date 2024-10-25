@@ -4,11 +4,12 @@
 		<div class="container">
             <?php
                 viewDetails();
+                addTocart();
                 ?>
 		</div>
 	</div>
     <script>
-        var increaseBtn = document.getElementsByClassName('btn-increase');
+var increaseBtn = document.getElementsByClassName('btn-increase');
 var decreaseBtn = document.getElementsByClassName('btn-decrease');
 var itemsToBuy = document.getElementById('num_of_items');
 

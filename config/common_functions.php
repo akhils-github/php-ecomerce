@@ -93,7 +93,7 @@ function viewDetails()
                                 <p>' . $product_desc . '</p>
                                 <div class="single-product-form">
 
-                                    <form class="mb-3" action="index.php?products&&add_to_cart=' . $product_id . '">
+                                    <form class="mb-3" action= index.php?products.php?products&&add_to_cart=' . $product_id . '">
                                         <div class="buy-item d-flex gap-3  align-items-center">
                                             <div class="num-btns d-flex gap-1">
                                                 <button type="button" class="btn btn-outline-primary" onclick="decreaseValueBtn()"> -</button>
@@ -103,7 +103,7 @@ function viewDetails()
                                                
                                             </div>
                                             <div>
-                                                <input type="submit" class="btn btn-primary" value="Buy Now">
+                                                <input type="submit" class="btn btn-primary" value="Add To Cart">
                                             </div>
                                         </div>
                                     </form>
@@ -456,6 +456,27 @@ function getIPAddress()
 
 // cart function
 function cart()
+{
+    if (isset($_GET['add_to_cart'])) {
+        global $con;
+        $getProductId = $_GET['add_to_cart'];
+        $num_of_items = $_GET['num_of_items'];
+        $select_query = "SELECT * FROM `carts` WHERE product_id=$getProductId";
+        $select_result = mysqli_query($con, $select_query);
+        $num_of_rows = mysqli_num_rows($select_result);
+        if ($num_of_rows > 0) {
+            echo "<script>alert('This item is already present in Cart');</script>";
+            echo "<script>window.open('index.php','_self');</script>";
+            // header("Location:products.php");
+        } else {
+            $insert_query = "INSERT INTO `carts` (product_id,quantity) VALUES ($getProductId,$num_of_items)";
+            $insert_result = mysqli_query($con, $insert_query);
+            echo "<script>alert('This item added to Cart');</script>";
+            echo "<script>window.open('index.php','_self');</script>";
+        }
+    }
+}
+function addTocart()
 {
     if (isset($_GET['add_to_cart'])) {
         global $con;

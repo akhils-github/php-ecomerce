@@ -125,9 +125,9 @@ $currentPath = $_SERVER['REQUEST_URI'];
                 include('./user/feedback.php');
             }
 
-            // if(isset($_GET['view_product'])){
-            //     include('./view_product.php');
-            // }
+            if(isset($_GET['num_of_items'])){
+                include('./user/products.php');
+            }
     
 
             ?>
