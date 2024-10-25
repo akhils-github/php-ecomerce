@@ -1,6 +1,6 @@
 <?php
     include('../config/connect.php');
-    include('../config/common_functions.php');
+    include('../config/__common_functions.php');
     session_start();
     if(isset($_SESSION['admin_username'])){
         $admin_name = $_SESSION['admin_username'];
