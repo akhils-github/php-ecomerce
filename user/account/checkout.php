@@ -30,20 +30,10 @@ if(!isset($_SESSION['username'])){
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
+                        <a class="nav-link active" aria-current="page" href="../../index.php">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./products.php">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./users_area/user_registration.php">Register</a>
-                    </li>
+            
+    
                 </ul>
                 <!-- <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
