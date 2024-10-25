@@ -12,9 +12,11 @@ if(!isset($_SESSION['username'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $_SESSION['username'];?> Profile</title>
+    <title><?php echo $_SESSION['username'];?> FOOD CORNER    </title>
     <link rel="stylesheet" href="../../assets/css/bootstrap.css" />
     <link rel="stylesheet" href="../../assets/css/main.css" />
+    <link rel="shortcut icon" href="../../assets/images/home/favicon.svg" type="image/svg+xml">
+
 </head>
 
 <body>
@@ -23,7 +25,8 @@ if(!isset($_SESSION['username'])){
     <!-- Start NavBar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#">A1</a>
+            <a class="navbar-brand fw-bold" href="#">FOOD CORNER
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -69,7 +72,7 @@ if(!isset($_SESSION['username'])){
                                 $row_user_img = mysqli_fetch_array($select_user_img_result);
                                 $userImg = $row_user_img['image'];
                                 echo "                            <li class='nav-item d-flex align-items-center gap-2'>
-                                <img src='./user_images/$userImg' alt='$username photo' class='img-profile img-thumbnail'/>
+                                <img src='../../uploads/images/users/$userImg' alt='$username photo' class='img-profile img-thumbnail'/>
                             </li>";
                             ?>
                             <li class="nav-item d-flex align-items-center gap-2">

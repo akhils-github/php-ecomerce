@@ -14,18 +14,15 @@ session_start();
     <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 
-<body>
+<body style="background-image: url('../assets/images/admin/bg.png');object-fit: contain;"   >
 
     <!-- Start Landing Section -->
-    <div class="landing admin-register">
-        <div class="">
+    <div class="landing admin-register text-white">
             <h2 class="text-center mb-1">Admin Registration</h2>
             <h4 class="text-center mb-3 fw-light">Create an account</h4>
-            <div class="row m-0">
-                <div class="col-md-6 p-0 d-none d-md-block">
-                    <img src="../assets/images/bgregister.png" class="admin-register" alt="Register photo">
-                </div>
-                <div class="col-md-6 py-4 px-5 d-flex flex-column gap-4">
+            <div class="row m-0 justify-content-center">
+               
+                <div class="col-md-6 align-content-center py-4 px-5 d-flex flex-column gap-4">
                     <div>
                         <form action="" method="post" class="d-flex flex-column gap-4" enctype="multipart/form-data">
                             <div class="form-outline">
@@ -49,7 +46,7 @@ session_start();
                                 <input type="password" name="conf_password" id="conf_password" class="form-control" placeholder="Confirm your Password" required>
                             </div>
                             <div class="form-outline">
-                                <input type="submit" value="Register" class="btn btn-primary mb-3" name="admin_register">
+                                <input type="submit" value="Register" class="btn w-50 btn-primary mb-3" name="admin_register">
                                 <p class="small">
                                     You already have an account? <a href="./admin_login.php" class="text-decoration-underline text-success fw-bold">Login</a>
                                 </p>
@@ -58,7 +55,6 @@ session_start();
                     </div>
                 </div>
             </div>
-        </div>
     </div>
     <!-- End Landing Section -->
 

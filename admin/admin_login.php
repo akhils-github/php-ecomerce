@@ -14,17 +14,14 @@ session_start();
     <link rel="stylesheet" href="../assets/css/main.css" />
 </head>
 
-<body>
+<body style="background-image: url('../assets/images/admin/bg.png');object-fit: contain;">
 
     <!-- Start Landing Section -->
-    <div class="landing admin-register">
-        <div class="">
-            <h2 class="text-center mb-1">Admin Login</h2>
-            <h4 class="text-center mb-3 fw-light">Login to your account</h4>
-            <div class="row m-0 align-items-center">
-                <div class="col-md-6 p-0 d-none d-md-block">
-                    <img src="../assets/images/bgregister.png" class="admin-register" alt="Login photo">
-                </div>
+    <div class="landing admin-register text-white row align-items-center h-100 w-100 mt-5">
+            <h2 class="text-center text-white mb-1">Admin Login</h2>
+            <h4 class="text-center mb-3 text-white fw-light">Login to your account</h4>
+            <div class="row m-0 align-items-center justify-content-center">
+               
                 <div class="col-md-6 py-4 px-5 d-flex flex-column gap-4">
                     <div>
                         <form action="" method="post" class="d-flex flex-column gap-4">
@@ -36,12 +33,10 @@ session_start();
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Enter your Password" required>
                             </div>
-                            <div class="form-outline">
-                                <a href="" class="text-2 text-decoration-underline">Forgot your passowrd?</a>
-                            </div>
-                            <div class="form-outline">
-                                <input type="submit" value="Login" class="btn btn-primary mb-3" name="admin_login">
-                                <p class="small">
+                          
+                            <div class="form-outline ">
+                                <input type="submit" value="Login" class="btn w-50 btn-primary mb-3" name="admin_login">
+                                <p class="small text-white">
                                     Don't have an account? <a href="./admin_resgistration.php" class="text-decoration-underline text-success fw-bold">Register</a>
                                 </p>
                             </div>
@@ -49,7 +44,6 @@ session_start();
                     </div>
                 </div>
             </div>
-        </div>
     </div>
     <!-- End Landing Section -->
 

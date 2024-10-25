@@ -3,7 +3,7 @@
 }
 
 body {
-    background-image: url("../images/login/kk.jpg");
+    background-image: url("../../assets/images/home/login-bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;

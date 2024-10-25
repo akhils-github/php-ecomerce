@@ -145,7 +145,7 @@
     
     .sticky-top.navbar-dark {
         position: fixed;
-        background: var(--dark) !important;
+        background: #48060a !important;
     }
 }
 

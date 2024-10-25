@@ -88,8 +88,8 @@
                                                     <div class='btns d-flex gap-3'>
                                                         <button type='button' class='btn px-5 btn-secondary' data-bs-dismiss='modal'>Cancel</button>
                                                         <button type='button' class='btn px-5 btn-primary' data-bs-dismiss='modal'>
-                                                            <a class='text-light' href='index.php?delete_order=$order_id'>
-                                                                Delete Order No. <strong>$id_number</strong>
+                                                            <a class='text-light w-100' href='index.php?delete_order=$order_id'>
+                                                                Delete Order
                                                             </a>
                                                         </button>
                                                     </div>

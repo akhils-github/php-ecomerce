@@ -41,6 +41,8 @@ if(isset($_POST['user_update'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Account</title>
+    <link rel="shortcut icon" href="./assets/images/home/favicon.svg" type="image/svg+xml">
+
 </head>
 
 <body>
@@ -60,7 +62,7 @@ if(isset($_POST['user_update'])){
                     <div class="form-outline d-flex">
                         <!-- <label for="user_image" class="form-label">User Photo</label> -->
                         <input type="file" name="user_image" id="user_image" value="<?php echo $user_image;?>" class="form-control">
-                        <img src="./user_images/<?php echo $user_image;?>" height="80px" alt="<?php echo $username;?> Photo">
+                        <img src="../../uploads/images/users/<?php echo $user_image;?>" height="80px" alt="<?php echo $username;?> Photo">
                     </div>
                     <!-- <div class="form-outline">
                         <label for="user_address" class="form-label">User Address</label>

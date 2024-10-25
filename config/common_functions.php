@@ -7,7 +7,7 @@ function getProduct($numToDisplay = '')
     global $con;
     if (!isset($_GET['category_id'])) {
         // condition to check isset or not 
-        empty($numToDisplay) ? $select_product_query = "SELECT * FROM `products` ORDER BY rand()" : $select_product_query = "SELECT * FROM `products` ORDER BY rand() LIMIT 0,$numToDisplay";
+        empty($numToDisplay) ? $select_product_query = "SELECT * FROM `products` " : $select_product_query = "SELECT * FROM `products`  LIMIT 0,$numToDisplay";
         // $select_product_query = "SELECT * FROM `products` ORDER BY rand() LIMIT 0,10";
         $select_product_result = mysqli_query($con, $select_product_query);
         while ($row = mysqli_fetch_assoc($select_product_result)) {
@@ -214,35 +214,63 @@ function filterCategoryProduct()
 
 function getMenuCategories()
 {
-    $params_id = "";
-    if (isset($_GET['category_id'])) {
-        $params_id = $_GET['category_id'];
-    } else {
-        $params_id = "all";
-    }
+    $params_id = isset($_GET['category_id']) ? $_GET['category_id'] : "all";
+
     global $con;
     $select_category_query = "SELECT * FROM `categories`";
     $select_category_result = mysqli_query($con, $select_category_query);
+
+    // Expanded array of food icons (50+ icons)
+    $food_icons = [
+        'fa-pizza-slice',
+        'fa-ice-cream',
+        'fa-hamburger',
+        'fa-carrot',
+        'fa-bacon',
+        'fa-utensils',
+        'fa-bread-slice',
+        'fa-fish',
+        'fa-apple-alt',
+        'fa-cheese',
+        'fa-cookie',
+        'fa-drumstick-bite',
+        'fa-egg',
+        'fa-fish',
+        'fa-glass-cheers',
+        'fa-lemon',
+        'fa-pepper-hot',
+        'fa-wine-glass',
+        'fa-cocktail',
+        'fa-mug-hot',
+        'fa-hotdog',
+        'fa-birthday-cake',
+        'fa-kiwi-bird'
+    ];
+
     while ($categories_row_data = mysqli_fetch_assoc($select_category_result)) {
         $category_title = $categories_row_data['name'];
         $category_id = $categories_row_data['id'];
         $image = $categories_row_data['image'];
         $description = $categories_row_data['description'];
 
+        // Select a random food icon
+        $random_icon = $food_icons[array_rand($food_icons)];
+
         $active_class = ($params_id == $category_id) ? "active" : "";
 
         echo '
         <li class="nav-item">
             <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 ' . $active_class . '" data-bs-toggle="pill" href="index.php?menu&&category_id=' . $category_id . '">
-                <i class="fa fa-coffee fa-2x text-primary"></i>
+                <i class="fa ' . $random_icon . ' fa-2x text-primary"></i>
                 <div class="ps-3">
-                    <h6 class="mt-n1 mb-0">' . $category_title . '</h6>
+                    <h6 class="mt-n1 mb-0">' . $category_title  . '</h6>
                 </div>
             </a>
         </li>
-    ';
+        ';
     }
 }
+
 // display unique product with brand 
 function filterMenuProduct()
 {
@@ -255,7 +283,7 @@ function filterMenuProduct()
         $num_of_rows = mysqli_num_rows($select_product_result);
         if ($num_of_rows == 0) {
             echo "
-                <h2 class='text-center'>No Stock for this brand</h2>
+                <h2 class='text-center'>No Stock for this Menus</h2>
                 ";
         }
         while ($row = mysqli_fetch_assoc($select_product_result)) {
@@ -268,7 +296,7 @@ function filterMenuProduct()
 
                     <div class='col-lg-6'>
             <div class='d-flex align-items-center'>
-                <img class='flex-shrink-0 img-fluid rounded' src='./uploads/images/products/" . $image, "' alt='' style='width: 80px;'>
+                <img class='flex-shrink-0 img-fluid rounded' src='./uploads/images/menus/" . $image, "' alt='' style='width: 80px;'>
                 <div class='w-100 d-flex flex-column text-start ps-4'>
                     <h5 class='d-flex justify-content-between border-bottom pb-2'>
                         <span>$name</span>
@@ -301,7 +329,7 @@ function getMenus()
             echo "
         <div class='col-lg-6'>
             <div class='d-flex align-items-center'>
-                <img class='flex-shrink-0 img-fluid rounded' src='./uploads/images/products/" . $image, "' alt='' style='width: 80px;'>
+                <img class='flex-shrink-0 img-fluid rounded' src='./uploads/images/menus/" . $image, "' alt='' style='width: 80px;'>
                 <div class='w-100 d-flex flex-column text-start ps-4'>
                     <h5 class='d-flex justify-content-between border-bottom pb-2'>
                         <span>$name</span>
@@ -321,11 +349,11 @@ function getMenus()
 // $category_title
 // </a>
 
-function getFeedbacks()
+function getFeedbacks($numToDisplay="")
 {
     global $con;
     if (!isset($_GET['category_id'])) {
-        $select_menus_query = "SELECT * FROM `feedback`";
+        empty($numToDisplay) ?  $select_menus_query = "SELECT * FROM `feedback` " : $select_menus_query = "SELECT * FROM `feedback`  LIMIT 0,$numToDisplay";
         $select_menus_result = mysqli_query($con, $select_menus_query);
         while ($menus_row_data = mysqli_fetch_assoc($select_menus_result)) {
             $username = $menus_row_data['username'];

@@ -70,7 +70,7 @@ if (isset($_POST['insert_feedback'])) {
         </div>
         <div class="owl-carousel testimonial-carousel">
             <?php
-            getFeedbacks()
+            getFeedbacks(1)
             ?>
 
         </div>

@@ -1,8 +1,8 @@
             <!-- Navbar & Hero End -->
             <div class=" bg-white p-0" style="margin-top: 4.5rem;">
-                <div class="position-relative p-0 bg-dark hero-header py-5">
+                <div class="position-relative p-0 bg-dark hero-header py-5" style="background-image: url('./assets/images/home/hero-bg.jpg');">
 
-                    <div class="bg-dark hero-header">
+                    <div class="hero-" >
                         <div class="container">
                             <div class="row align-items-center g-5">
                                 <div class="col-lg-6 text-center text-lg-start">
@@ -10,8 +10,7 @@
                                     <p class="text-white animated slideInLeft mb-4 pb-2">Tempor erat elitr rebum at clita. Diam
                                         dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed
                                         stet lorem sit clita duo justo magna dolore erat amet</p>
-                                    <a href="" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book A
-                                        Table</a>
+                                   
 
 
                                 </div>

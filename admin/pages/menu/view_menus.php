@@ -48,7 +48,7 @@
                             <td>$description</td>
                             <td>$price</td>
                              <td>
-                                <img src='../uploads/uploads/menus/$image' alt='$name' width='80px' class='img-thumbnail'/>
+                                <img src='../uploads/images/menus/$image' alt='$name' width='80px' class='img-thumbnail'/>
                             </td>
                             <td>
                                 <a href='index.php?edit_menus=$menu_id'>

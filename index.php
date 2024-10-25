@@ -16,7 +16,7 @@ $currentPath = $_SERVER['REQUEST_URI'];
     <link rel="stylesheet" href="./assets/css/bootstrap.css" />
     <link rel="stylesheet" href="./assets/css/main.css" />
 
-
+    <link rel="shortcut icon" href="./assets/images/home/favicon.svg" type="image/svg+xml">
     <!-- Libraries Stylesheet -->
     <link href="./assets/lib/animate/animate.min.css" rel="stylesheet">
     <link href="./assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
@@ -49,7 +49,9 @@ $currentPath = $_SERVER['REQUEST_URI'];
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-2 sticky-top shadow-sm">
             <a href="" class="navbar-brand p-0">
-                <h2 class="text-primary m-0"><i class="fa fa-utensils me-3"></i>FOOD CORNER</h2>
+                <h2 class="text-primary m-0">
+                    <!-- <i class="fa fa-utensils me-3"></i> -->
+                    FOOD CORNER</h2>
                 <!-- <img src="img/logo.png" alt="Logo"> -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -126,57 +128,17 @@ $currentPath = $_SERVER['REQUEST_URI'];
             // if(isset($_GET['view_product'])){
             //     include('./view_product.php');
             // }
-            if (isset($_GET['edit_product'])) {
-                include('./edit_product.php');
-            }
-            if (isset($_GET['delete_product'])) {
-                include('./delete_product.php');
-            }
-            if (isset($_GET['view_categories'])) {
-                include('./view_categories.php');
-            }
-            if (isset($_GET['edit_category'])) {
-                include('./edit_category.php');
-            }
-            if (isset($_GET['delete_category'])) {
-                include('./delete_category.php');
-            }
-            if (isset($_GET['view_brands'])) {
-                include('./view_brands.php');
-            }
-            if (isset($_GET['edit_brand'])) {
-                include('./edit_brand.php');
-            }
-            if (isset($_GET['delete_brand'])) {
-                include('./delete_brand.php');
-            }
-            if (isset($_GET['list_orders'])) {
-                include('./list_orders.php');
-            }
-            if (isset($_GET['delete_order'])) {
-                include('./delete_order.php');
-            }
-            if (isset($_GET['list_payments'])) {
-                include('./list_payments.php');
-            }
-            if (isset($_GET['delete_payment'])) {
-                include('./delete_payment.php');
-            }
-            if (isset($_GET['list_users'])) {
-                include('./list_users.php');
-            }
+    
 
             ?>
         </div>
 
 
         <!-- End Footer -->
-        <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
         <script src="./assets/js/jquery-min.js"></script>
 
         <!-- <script src="./assets/js/bootstrap.bundle.js"></script> -->
 
-        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script> -->
         <script src="./assets/lib/wow/wow.min.js"></script>
         <script src="./assets/lib/easing/easing.min.js"></script>
         <script src="./assets/lib/waypoints/waypoints.min.js"></script>
